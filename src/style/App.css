@@ -1,3 +1,11 @@
+:root {
+  --text: #0c0e0d;
+  --background: #dee0e8;
+  --primary: #b6aab3;
+  --secondary: #abb9cf;
+  --accent: #8c7886;
+}
+
 .App {
-  text-align: center;
+  background-image: linear-gradient(90deg, #abb9cf 10%, #171921 90%);
 }

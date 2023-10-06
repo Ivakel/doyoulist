@@ -1,0 +1,46 @@
+:root {
+  --text: #0c0e0d;
+  --background: #dee0e8;
+  --primary: #b6aab3;
+  --secondary: #abb9cf;
+  --accent: #8c7886;
+}
+:root[data-theme="dark"] {
+  --text: #f1f3f2;
+  --background: #171921;
+  --primary: #554952;
+  --secondary: #303e54;
+  --accent: #877381;
+}
+.Login {
+  background-image: linear-gradient(90deg, #abb9cf 10%, #171921 90%);
+  display: flex;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 2%;
+}
+.LoginForm {
+  width: 30%;
+  margin-left: 5rem;
+  margin-top: 3rem;
+  border-radius: 5px;
+}
+.calendar {
+  display: flex;
+  width: 50%;
+  margin-right: 0;
+  background-color: #554952;
+  margin-left: 13%;
+  border-radius: 25px;
+  background-image: url("../assets/svg/banner-bg.svg");
+  background-size: cover;
+}
+.quote {
+  margin: auto;
+  padding: 1rem;
+  font-size: 2rem;
+}
