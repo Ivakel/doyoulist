@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
-import "../style/LoginForm.css";
+import "../style/SignUpForm.css";
 
-export const LoginForm = (props) => {
+export const SignUpForm = (props) => {
   return (
     <div className="LoginForm">
       <p className="text">Login</p>
       <form>
         <label>Email</label>
         <input onChange={(event) => props.setEmail(event.target.value)} />
+        <label>Username</label>
+        <input onChange={(event) => props.setUsername(event.target.value)} />
         <label>Password</label>
         <input
           type="password"
@@ -19,12 +21,7 @@ export const LoginForm = (props) => {
         </button>
       </form>
       <p className="login text" style={{ fontSize: "1rem" }}>
-        Don't have an account?{" "}
-        {
-          <Link className="Signup" to="/auth/signup">
-            Signup
-          </Link>
-        }
+        Already have an account? {<Link to="/auth/Login">Signup</Link>}
       </p>
     </div>
   );

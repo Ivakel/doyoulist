@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
-import { LoginForm } from "./LoginForm";
+import { SignUpForm } from "./SignUpForm";
 import Axios from "axios";
-import "../style/Login.css";
+import "../style/SignUp.css";
 
-// const api = Axios.create({ baseURL: "http://localhost:5000" });
+const api = Axios.create({ baseURL: "http://localhost:5000" });
 
-export const Login = () => {
+export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
   useEffect(() => {
     const quotes = async () => {
-      return await Axios.get("http://localhost:5000/quote").then((data) => {
+      return await api.get("/quote").then((data) => {
         setQuote(data.data[0].q);
         setAuthor(data.data[0].a);
       });
@@ -22,7 +23,8 @@ export const Login = () => {
   }, []);
 
   const handleSubmit = async () => {
-    await Axios.post("http://localhost:5000/auth/login", { email, password })
+    await api
+      .post("/auth/signup", { email, password, username })
       .then((res) => {
         console.log(res);
       })
@@ -30,11 +32,12 @@ export const Login = () => {
   };
 
   return (
-    <div className="Login">
+    <div className="SignUp">
       <div className="wrapper">
-        <LoginForm
+        <SignUpForm
           setEmail={setEmail}
           setPassword={setPassword}
+          setUsername={setUsername}
           handleSubmit={handleSubmit}
         />
         <div className="calendar">
