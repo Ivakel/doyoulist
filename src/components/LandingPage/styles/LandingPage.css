@@ -1,0 +1,39 @@
+.LandingPage {
+  background-image: linear-gradient(90deg, #abb9cf 10%, #171921 90%);
+}
+
+nav {
+  padding-right: 2rem;
+  width: 100%;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+
+  margin-left: 10%;
+  height: 4rem;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 300;
+  margin: auto;
+  width: 50%;
+  text-shadow: #fff;
+}
+
+.components {
+  display: flex;
+  gap: 2rem;
+  margin: auto;
+  margin-left: 30%;
+  width: 50%;
+  margin-right: 0;
+}
+
+#links {
+  color: white;
+  text-decoration: none;
+
+  text-align: center;
+}

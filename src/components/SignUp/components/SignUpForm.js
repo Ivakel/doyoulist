@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import "../style/SignUpForm.css";
+import "../styles/SignUpForm.css";
 
 export const SignUpForm = (props) => {
   return (
     <div className="LoginForm">
-      <p className="text">Login</p>
+      <p className="text">Sign up</p>
       <form>
         <label>Email</label>
         <input onChange={(event) => props.setEmail(event.target.value)} />

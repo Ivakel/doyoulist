@@ -6,7 +6,7 @@
   --accent: #8c7886;
 }
 
-.LoginForm {
+.SignUpForm {
   margin: 0;
   background-color: #abb9cf;
   color: var(--text);

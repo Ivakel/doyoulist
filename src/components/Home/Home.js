@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AddTask } from "./AddTask";
 
 import { NavBar } from "./NavBar";
-import { SideBar } from "./SideBar";
+import { SideBar } from "../SignUp/components/SideBar";
 
 export const Home = () => {
   const [taskList, setTaskList] = useState([]);

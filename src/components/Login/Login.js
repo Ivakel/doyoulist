@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { LoginForm } from "./LoginForm";
 import Axios from "axios";
-import "../style/Login.css";
+import "./styles/Login.css";
 
 // const api = Axios.create({ baseURL: "http://localhost:5000" });
 

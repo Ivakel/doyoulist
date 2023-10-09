@@ -12,7 +12,7 @@
   --secondary: #303e54;
   --accent: #877381;
 }
-.Login {
+.SignUp {
   background-image: linear-gradient(90deg, #abb9cf 10%, #171921 90%);
   display: flex;
 }
@@ -23,7 +23,7 @@
   width: 100%;
   margin: 2%;
 }
-.LoginForm {
+.SignUpForm {
   width: 30%;
   margin-left: 5rem;
   margin-top: 3rem;
@@ -36,7 +36,7 @@
   background-color: #554952;
   margin-left: 13%;
   border-radius: 25px;
-  background-image: url("../assets/svg/banner-bg.svg");
+  background-image: url("C:/ProgPrac/doyoulist/src/assets/svg/banner-bg.svg");
   background-size: cover;
 }
 .quote {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { SignUpForm } from "./SignUpForm";
+import { SignUpForm } from "./components/SignUpForm";
 import Axios from "axios";
-import "../style/SignUp.css";
+import "./styles/SignUp.css";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
