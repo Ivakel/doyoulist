@@ -17,11 +17,11 @@ export const SignUpForm = (props) => {
           onChange={(event) => props.setPassword(event.target.value)}
         />
         <button className="submit-btn" onClick={props.handleSubmit}>
-          login
+          Sign up
         </button>
       </form>
       <p className="login text" style={{ fontSize: "1rem" }}>
-        Already have an account? {<Link to="/auth/Login">Signup</Link>}
+        Already have an account? {<Link to="/auth/Login">Login</Link>}
       </p>
     </div>
   );

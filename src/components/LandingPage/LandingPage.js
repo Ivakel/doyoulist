@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./styles/LandingPage.css";
-import { SignUpButton } from "../SignUp/components/SignUpButton";
+import { SignUpButton } from "./components/SignUpButton";
 
 export const LandingPage = () => {
   return (
