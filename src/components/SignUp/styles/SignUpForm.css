@@ -62,6 +62,7 @@ input {
 .submit-btn:hover {
   background-color: #171921;
   color: #f1f3f2;
+  cursor: pointer;
 }
 .login a {
   color: rgb(22, 132, 223);

@@ -1,15 +1,29 @@
 import { useEffect, useState } from "react";
-import { LoginForm } from "./LoginForm";
+import { LoginForm } from "./components/LoginForm";
 import Axios from "axios";
 import "./styles/Login.css";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-// const api = Axios.create({ baseURL: "http://localhost:5000" });
+const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
+
+  const schema = yup.object().shape({
+    email: yup.string().email("Invalid email").required("Email required"),
+    password: yup.string().required("Password required").min(8).max(12),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   useEffect(() => {
     const quotes = async () => {
@@ -21,8 +35,9 @@ export const Login = () => {
     quotes();
   }, []);
 
-  const handleSubmit = async () => {
-    await Axios.post("http://localhost:5000/auth/login", { email, password })
+  const Submit = async (data) => {
+    await api
+      .post("/auth/login", data)
       .then((res) => {
         console.log(res);
       })
@@ -33,9 +48,10 @@ export const Login = () => {
     <div className="Login">
       <div className="wrapper">
         <LoginForm
-          setEmail={setEmail}
-          setPassword={setPassword}
+          register={register}
           handleSubmit={handleSubmit}
+          Submit={Submit}
+          errors={errors}
         />
         <div className="calendar">
           <div className="quote">

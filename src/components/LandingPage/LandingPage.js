@@ -1,27 +1,18 @@
-import { Link } from "react-router-dom";
+import { Main } from "./components/Main";
+import { Navigation } from "./components/Navigation";
 import "./styles/LandingPage.css";
-import { SignUpButton } from "./components/SignUpButton";
 
 export const LandingPage = () => {
   return (
     <div className="LandingPage">
       <nav>
         <div className="nav-container">
-          <p className="title">DOYOULIST</p>
-          <div className="components">
-            <Link id="links" className="link">
-              Services
-            </Link>
-            <Link id="links" className="link">
-              About
-            </Link>
-            <Link id="links" className="link">
-              Contact
-            </Link>
-            <SignUpButton />
-          </div>
+          <Navigation />
         </div>
       </nav>
+      <div className="main">
+        <Main />
+      </div>
     </div>
   );
 };

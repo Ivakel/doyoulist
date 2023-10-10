@@ -1,0 +1,26 @@
+.Navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  margin-left: 5%;
+  height: 4rem;
+}
+
+.components {
+  display: flex;
+  gap: 2rem;
+  margin: auto;
+  margin-left: 30%;
+  width: 50%;
+  margin-right: 0;
+}
+
+#links {
+  color: white;
+  text-decoration: none;
+
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
