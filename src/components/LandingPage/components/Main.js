@@ -1,10 +1,11 @@
 import React from "react";
 import ServicesBtn from "./ServicesBtn";
+import "../styles/Main.css";
 
 export const Main = () => {
   return (
     <div className="Main">
-      <div className="content">
+      <div className="content square">
         <p className="advert">Get More Done with DoYouList</p>
         <p className="paragraph">
           DoYouList is the perfect task management solution for busy students
@@ -13,8 +14,11 @@ export const Main = () => {
         </p>
         <ServicesBtn />
       </div>
-      <div className="subject">
-        <img src="../assets/img/subject.PNG" alt="working subject" />
+      <div className="subject square">
+        <img
+          src={require("../assets/img/subject-transformed.png")}
+          alt="working subject"
+        />
       </div>
     </div>
   );

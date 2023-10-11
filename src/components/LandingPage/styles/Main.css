@@ -1,0 +1,32 @@
+.Main {
+  background-color: #abb9cf;
+  display: flex;
+  margin-top: 6%;
+  justify-self: center;
+
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  border-radius: 5px;
+}
+.content {
+  width: 50%;
+}
+.square {
+  flex: 50%;
+}
+
+.advert {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.subject {
+  margin-right: 0;
+  height: 100%;
+}
+.subject img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}

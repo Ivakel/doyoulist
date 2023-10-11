@@ -1,3 +1,19 @@
 button {
-  background-color: aqua;
+  background-color: #171921;
+  border: none;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 5px;
+  color: white;
+  margin: auto;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.ServicesBtn {
+  display: flex;
+  justify-content: center;
+  margin-right: 1rem;
 }
