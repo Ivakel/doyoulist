@@ -1,26 +1,24 @@
-import { useState } from "react";
-import { AddTask } from "./AddTask";
+// import { useState } from "react";
 
-import { NavBar } from "./NavBar";
-import { SideBar } from "../SignUp/components/SideBar";
+import { MainHome } from "./components/MainHome";
+import { NavBar } from "./components/NavBar";
 
 export const Home = () => {
-  const [taskList, setTaskList] = useState([]);
-  const [task, setTask] = useState("");
+  // const [taskList, setTaskList] = useState([]);
+  // const [task, setTask] = useState("");
 
-  const addTask = () => {
-    const newTask = {
-      text: task,
-      id: taskList.length === 0 ? 0 : taskList.length + 1,
-      isCompleted: false,
-    };
-    setTaskList([...taskList, newTask]);
-  };
+  // const addTask = () => {
+  //   const newTask = {
+  //     text: task,
+  //     id: taskList.length === 0 ? 0 : taskList.length + 1,
+  //     isCompleted: false,
+  //   };
+  //   setTaskList([...taskList, newTask]);
+  // };
   return (
     <div className="Home">
       <NavBar />
-      <AddTask addTask={addTask} setTask={setTask} />
-      <SideBar taskList={taskList} />
+      <MainHome />
     </div>
   );
 };

@@ -1,0 +1,25 @@
+.ListItem {
+  height: 2rem;
+  margin-bottom: 0;
+  margin-left: 0;
+  transition: 0.5s;
+  width: 99%;
+  border-radius: 3px;
+}
+
+.ListItem:hover {
+  background-color: #8590bb;
+  cursor: pointer;
+}
+
+.list-item {
+  display: flex;
+  margin-top: 6px;
+  top: 50%;
+}
+
+.li-txt {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0.5rem;
+}

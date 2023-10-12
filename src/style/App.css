@@ -5,7 +5,3 @@
   --secondary: #abb9cf;
   --accent: #8c7886;
 }
-
-.App {
-  background-image: linear-gradient(90deg, #abb9cf 10%, #171921 90%);
-}

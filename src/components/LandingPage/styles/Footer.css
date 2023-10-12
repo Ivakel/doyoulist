@@ -16,7 +16,7 @@ input {
   margin-bottom: 1rem;
 }
 
-input {
+.news-email {
   border-radius: none;
   height: 2rem;
   width: 30rem;
@@ -29,6 +29,7 @@ input {
   color: #ffffff;
   border: none;
   border-radius: 3px;
+  transition: 0.5s;
 }
 .subtn:hover {
   cursor: pointer;

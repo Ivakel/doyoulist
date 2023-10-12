@@ -10,7 +10,7 @@ export const Footer = () => {
         <label>
           Enter your email address to register to our newsletter subscription!{" "}
         </label>
-        <input type="email" />
+        <input type="email" className="news-email" />
         <input type="submit" value={"send"} className="subtn" />
       </form>
     </div>
