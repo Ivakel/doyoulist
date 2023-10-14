@@ -33,24 +33,25 @@
 .plus {
   width: 1.5rem;
   height: 1.5rem;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 3rem;
+  margin: auto;
+  margin-top: 0.11rem;
+  margin-left: 0.11rem;
 }
 
 .plus:hover {
   color: #000;
 }
 
-.button {
+.add {
   width: 1.7rem;
   height: 1.7rem;
   margin-top: auto;
   margin-bottom: auto;
   margin-right: 3rem;
+  transition: 0.4s;
 }
 
-.button:hover {
+.add:hover {
   cursor: pointer;
   background-color: #1f2129;
   border-radius: 50%;
@@ -66,4 +67,8 @@
   margin-top: 0.3rem;
   width: 1.7rem;
   height: 1.7rem;
+}
+
+.bell:hover {
+  cursor: pointer;
 }

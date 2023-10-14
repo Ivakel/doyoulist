@@ -7,14 +7,17 @@ import { ReactComponent as Plus } from "../assets/svg/plus.svg";
 
 import "../styles/NavBar.css";
 
-export const NavBar = () => {
+export const NavBar = (props) => {
+  const handleAdd = () => {
+    props.setShowAddTask(!props.showAddTask);
+  };
   return (
     <div className="NavBar">
       <Hamburger className="hamburger" />
 
       <div className="right">
-        <div className="button">
-          <Plus type={"button"} className="plus" />
+        <div className="add">
+          <Plus type={"button"} className="plus" onClick={handleAdd} />
         </div>
         <div className="Notification">
           <Bell className="bell" />

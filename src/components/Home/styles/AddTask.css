@@ -1,0 +1,23 @@
+.AddTask {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+  border-radius: 15px;
+  z-index: 1;
+  background-color: hsl(215, 100%, 66%);
+  /* visibility: hidden; */
+  transition: transform 0.4s, top 0.4s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.show {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  visibility: visible;
+}
