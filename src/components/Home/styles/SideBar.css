@@ -1,12 +1,10 @@
 .SideBar {
-  margin-top: 0.2rem;
-  margin-left: 0.2rem;
   background-color: #97a0c5;
-  height: 37.5rem;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 3px;
+  z-index: 1;
 }
 
 .list {

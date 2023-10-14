@@ -5,6 +5,8 @@ import "./styles/SignUp.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../authentication/firebase-auth";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
@@ -38,12 +40,21 @@ export const SignUp = () => {
   }, []);
 
   const Submit = async (data) => {
-    await api
-      .post("/auth/signup", data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => console.log(error));
+    try {
+      const authUser = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      const newData = { ...data, firebaseId: authUser.user.uid };
+      await api
+        .post("/auth/signup", newData)
+        .then((res) => {
+          console.log(res.user);
+        })
+        .catch((error) => console.log(error));
+    } catch (error) {}
   };
 
   return (

@@ -1,13 +1,13 @@
 .Section {
   background-color: #9da2b8;
-  width: 98.7%;
-  border-radius: 3px;
-  margin-top: 3px;
-  margin-left: 1%;
+  width: 100%;
+  /* border-radius: 3px; */
+  /* margin-top: 3px;
+  margin-left: 1%; */
   height: 37.5rem;
 }
 
 .instructions {
   margin: 0;
-  padding: 2px;
+  padding: 5px;
 }

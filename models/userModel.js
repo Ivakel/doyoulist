@@ -17,8 +17,12 @@ const UserSchema = new mongoose.Schema(
     googleID: {
       type: String,
     },
-    todolist: {
-      type: Array,
+    tasksDB: {
+      type: String,
+    },
+    firebaseId: {
+      type: String,
+      required: true,
     },
   },
   {
