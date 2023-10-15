@@ -6,7 +6,7 @@ export const LoginForm = (props) => {
     <div className="LoginForm">
       <p className="text">Login</p>
       <form onSubmit={props.handleSubmit(props.Submit)}>
-        <label>Email</label>
+        <label className="lbl-li">Email</label>
 
         <input {...props.register("email")} />
         <p
@@ -19,8 +19,13 @@ export const LoginForm = (props) => {
           {props.errors.email?.message}
         </p>
 
-        <label>Password</label>
-        <input type="password" required {...props.register("password")} />
+        <label className="lbl-li">Password</label>
+        <input
+          className="input-li"
+          type="password"
+          required
+          {...props.register("password")}
+        />
         <p
           style={{
             display: props.errors.password ? "inline" : "none",
@@ -30,7 +35,7 @@ export const LoginForm = (props) => {
         >
           {props.errors.password?.message}
         </p>
-        <input type="submit" className="submit-btn" value="Login" />
+        <input type="submit" className="submit-btn input-li" value="Login" />
       </form>
       <p className="login text" style={{ fontSize: "1rem" }}>
         Don't have an account?{" "}

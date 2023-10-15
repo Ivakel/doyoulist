@@ -32,10 +32,10 @@ form {
   padding: 1rem;
 }
 
-label {
+.lbl-li {
   margin-bottom: 0.2rem;
 }
-input {
+.input-li {
   margin-bottom: 1rem;
   height: 2.2rem;
   border-radius: 5px;

@@ -1,4 +1,4 @@
-button {
+.svbtn {
   background-color: #171921;
   border: none;
   width: 8rem;
@@ -9,7 +9,7 @@ button {
   transition: 0.5s;
 }
 
-button:hover {
+.svbtn:hover {
   cursor: pointer;
   background-color: #2c2e3a;
   color: #f1f3f2;

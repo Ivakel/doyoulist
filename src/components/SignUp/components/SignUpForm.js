@@ -7,9 +7,9 @@ export const SignUpForm = (props) => {
     <div className="LoginForm">
       <p className="text">Sign up</p>
       <form onSubmit={props.handleSubmit(props.Submit)}>
-        <label>Email</label>
+        <label className="lbl-su">Email</label>
 
-        <input {...props.register("email")} />
+        <input className="input-su" {...props.register("email")} />
         <p
           style={{
             display: props.errors.email ? "inline" : "none",
@@ -20,8 +20,8 @@ export const SignUpForm = (props) => {
           {props.errors.email?.message}
         </p>
 
-        <label>Username</label>
-        <input {...props.register("username")} />
+        <label className="lbl-su">Username</label>
+        <input className="input-su" {...props.register("username")} />
         <p
           style={{
             display: props.errors.username ? "inline" : "none",
@@ -32,8 +32,13 @@ export const SignUpForm = (props) => {
           {props.errors.username?.message}
         </p>
 
-        <label>Password</label>
-        <input type="password" required {...props.register("password")} />
+        <label className="lbl-su">Password</label>
+        <input
+          className="input-su"
+          type="password"
+          required
+          {...props.register("password")}
+        />
         <p
           style={{
             display: props.errors.password ? "inline" : "none",
@@ -44,8 +49,13 @@ export const SignUpForm = (props) => {
           {props.errors.password?.message}
         </p>
 
-        <label>Confirm Password</label>
-        <input type="password" required {...props.register("confirmPW")} />
+        <label className="lbl-su">Confirm Password</label>
+        <input
+          className="input-su"
+          type="password"
+          required
+          {...props.register("confirmPW")}
+        />
         <p
           style={{
             display: props.errors.confirmPW ? "inline" : "none",
@@ -55,7 +65,7 @@ export const SignUpForm = (props) => {
         >
           {props.errors.confirmPW?.message}
         </p>
-        <input type="submit" className="submit-btn" value="Sign up" />
+        <input type="submit" className="submit-btn input-su" value="Sign up" />
       </form>
       <p className="login text" style={{ fontSize: "1rem" }}>
         Already have an account? {<Link to="/auth/Login">Login</Link>}

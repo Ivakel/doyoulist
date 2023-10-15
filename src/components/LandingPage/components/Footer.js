@@ -7,7 +7,7 @@ export const Footer = () => {
     <div className="Footer">
       <p className="subscribeTxt">Subscribe to Newsletter</p>
       <form>
-        <label>
+        <label className="footerLbl">
           Enter your email address to register to our newsletter subscription!{" "}
         </label>
         <input type="email" className="news-email" />

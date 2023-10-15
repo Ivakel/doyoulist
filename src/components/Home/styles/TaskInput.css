@@ -1,0 +1,30 @@
+.TaskInput {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem;
+}
+
+.task-name {
+  height: 2rem;
+  border: none;
+}
+
+::placeholder {
+  color: rgb(85, 85, 85);
+  font-size: large;
+}
+
+.task-name:focus {
+  border: none;
+}
+
+.task-description {
+  margin-top: 0.5rem;
+  height: 1.6rem;
+  border: none;
+}
+
+.task-name,
+.task-description {
+  background-color: rgba(171, 171, 171, 0.49);
+}
