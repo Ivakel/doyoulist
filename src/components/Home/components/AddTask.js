@@ -11,6 +11,7 @@ export const AddTask = () => {
   const [time, setTime] = useState("10:00");
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+
   const handleSubmit = () => {
     const day = date.getDate();
     const month = date.getMonth() + 1;
@@ -41,10 +42,9 @@ export const AddTask = () => {
 
         <TimeSelector setTime={setTime} />
       </div>
-      <button className="add-task" onClick={handleSubmit}>
+      <button onClick={handleSubmit} type="button" className="add-task">
         Add task
       </button>
-      {typeof date}
     </div>
   );
 };

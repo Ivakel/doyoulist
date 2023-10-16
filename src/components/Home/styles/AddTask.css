@@ -38,3 +38,18 @@
   transform: translate(-50%, -50%) scale(1);
   visibility: visible;
 }
+
+.add-task {
+  margin-top: 3rem;
+  height: 2rem;
+  background-color: rgba(240, 248, 255, 0);
+  border: grey solid 1px;
+  border-radius: 2px;
+}
+
+.add-task:hover {
+  cursor: pointer;
+}
+.add-task:active {
+  transform: scale(1.2);
+}

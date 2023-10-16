@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../styles/TaskInput.css";
 
 export const TaskInput = (props) => {
@@ -12,13 +13,18 @@ export const TaskInput = (props) => {
       <input
         placeholder="Task name"
         className="task-name"
-        onClick={handleName}
+        onChange={handleName}
+        id="textarea"
+        type="text"
       />
-      <input
+
+      <textarea
         placeholder="Task description"
         className="task-description"
-        onClick={handleDescription}
-      />
+        onChange={handleDescription}
+        id="textarea"
+        type="text"
+      ></textarea>
     </div>
   );
 };
