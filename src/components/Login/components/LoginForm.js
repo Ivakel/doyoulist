@@ -8,7 +8,7 @@ export const LoginForm = (props) => {
       <form onSubmit={props.handleSubmit(props.Submit)}>
         <label className="lbl-li">Email</label>
 
-        <input {...props.register("email")} />
+        <input className="input-li" {...props.register("email")} />
         <p
           style={{
             display: props.errors.email ? "inline" : "none",

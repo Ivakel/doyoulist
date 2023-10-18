@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SignUpForm } from "./components/SignUpForm";
 import Axios from "axios";
 import "./styles/SignUp.css";
@@ -7,10 +7,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../authentication/firebase-auth";
+import { User } from "../Helper/Context";
+import { Navigate } from "react-router-dom";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const SignUp = () => {
+  const { user, setUser } = useContext(User);
+
+  if (user) {
+    <Navigate to="/home" />;
+  }
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
@@ -40,20 +47,27 @@ export const SignUp = () => {
   }, []);
 
   const Submit = async (data) => {
+    let authUser = null;
     try {
-      const authUser = await createUserWithEmailAndPassword(
+      authUser = await createUserWithEmailAndPassword(
         auth,
         data.email,
         data.password
       );
+      await setUser(authUser.user);
+      console.log(user);
 
       const newData = { ...data, firebaseId: authUser.user.uid };
       await api
         .post("/auth/signup", newData)
         .then((res) => {
-          console.log(res.user);
+          console.log(res.user ? res.user : res);
         })
         .catch((error) => console.log(error));
+
+      if (user) {
+        return <Navigate to="/home" />;
+      }
     } catch (error) {}
   };
 

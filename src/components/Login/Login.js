@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LoginForm } from "./components/LoginForm";
 import Axios from "axios";
 import "./styles/Login.css";
@@ -7,10 +7,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../authentication/firebase-auth";
+import { User } from "../Helper/Context";
+import { Navigate } from "react-router-dom";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const Login = () => {
+  const { user, setUser } = useContext(User);
+
+  if (user) {
+    <Navigate to="/home" />;
+  }
+
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
@@ -44,6 +52,7 @@ export const Login = () => {
         data.email,
         data.password
       );
+      setUser(authUser.user);
       await api
         .post("/auth/login", { firebaseId: authUser.user.uid })
         .then((res) => {
