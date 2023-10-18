@@ -14,11 +14,6 @@ const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const Login = () => {
   const { user, setUser } = useContext(User);
-
-  if (user) {
-    <Navigate to="/home" />;
-  }
-
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
@@ -45,14 +40,19 @@ export const Login = () => {
     quotes();
   }, []);
 
+  if (user) {
+    return <Navigate to="/home" />;
+  }
+
   const Submit = async (data) => {
+    let authUser = null;
     try {
-      const authUser = await signInWithEmailAndPassword(
+      authUser = await signInWithEmailAndPassword(
         auth,
         data.email,
         data.password
       );
-      setUser(authUser.user);
+
       await api
         .post("/auth/login", { firebaseId: authUser.user.uid })
         .then((res) => {
@@ -61,6 +61,10 @@ export const Login = () => {
         .catch((error) => console.log(error));
     } catch (error) {
       console.log(error);
+    }
+    await setUser(authUser.user);
+    if (user) {
+      return <Navigate to="/home" />;
     }
   };
 

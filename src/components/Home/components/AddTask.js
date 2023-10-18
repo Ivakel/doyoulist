@@ -7,13 +7,15 @@ import { TaskInput } from "./TaskInput";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
-export const AddTask = () => {
+export const AddTask = ({ user }) => {
+  console.log(user);
+  console.log("user");
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState("10:00");
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
 
-  const handleSubmit = ({ user }) => {
+  const handleSubmit = () => {
     try {
       api
         .post("/add", {

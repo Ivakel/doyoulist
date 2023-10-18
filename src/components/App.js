@@ -9,7 +9,7 @@ import { Home } from "./Home/Home";
 import { useState } from "react";
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   return (
     <div className="App">
       <User.Provider value={{ user, setUser }}>

@@ -8,7 +8,7 @@ import { AddTask } from "./AddTask";
 export const MainHome = ({ user, showAddTask }) => {
   return (
     <div className="MainHome">
-      <SideBar />
+      <SideBar user={user} />
       {showAddTask ? (
         <AddTask user={user} />
       ) : (

@@ -54,8 +54,6 @@ export const SignUp = () => {
         data.email,
         data.password
       );
-      await setUser(authUser.user);
-      console.log(user);
 
       const newData = { ...data, firebaseId: authUser.user.uid };
       await api
@@ -64,11 +62,15 @@ export const SignUp = () => {
           console.log(res.user ? res.user : res);
         })
         .catch((error) => console.log(error));
-
+      console.log(user);
       if (user) {
         return <Navigate to="/home" />;
       }
     } catch (error) {}
+    await setUser(authUser.user);
+    if (user) {
+      return <Navigate to="/home" />;
+    }
   };
 
   return (
