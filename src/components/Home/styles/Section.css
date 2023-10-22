@@ -1,5 +1,5 @@
 .Section {
-  background-color: #9da2b8;
+  background-color: #f3f4f7;
   width: 100%;
   /* border-radius: 3px; */
   /* margin-top: 3px;
@@ -10,4 +10,15 @@
 .instructions {
   margin: 0;
   padding: 15px;
+}
+
+.instruction {
+  margin-bottom: 1rem;
+  color: rgb(36, 36, 39);
+  font-size: 1.3rem;
+}
+
+.list {
+  height: 100%;
+  width: 95%;
 }

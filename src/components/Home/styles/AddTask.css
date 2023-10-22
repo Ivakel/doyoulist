@@ -45,6 +45,7 @@
   background-color: rgba(240, 248, 255, 0);
   border: grey solid 1px;
   border-radius: 2px;
+  font-size: 1rem;
 }
 
 .add-task:hover {

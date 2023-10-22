@@ -7,13 +7,17 @@ import { TaskInput } from "./TaskInput";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
-export const AddTask = ({ user }) => {
-  console.log(user);
-  console.log("user");
+export const AddTask = ({ user, setTasks, setAdded }) => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState("10:00");
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const n = () => {};
+  const showAdded = () => {
+    setAdded(true);
+
+    setTimeout(() => setAdded(false), 3000);
+  };
 
   const handleSubmit = () => {
     try {
@@ -26,7 +30,8 @@ export const AddTask = ({ user }) => {
           firebaseId: user.uid,
         })
         .then((res) => {
-          console.log(res);
+          setTasks(res.data.taskList);
+          showAdded();
         });
     } catch (error) {
       console.log(error);
