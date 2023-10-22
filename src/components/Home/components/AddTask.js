@@ -12,7 +12,7 @@ export const AddTask = ({ user, setTasks, setAdded }) => {
   const [time, setTime] = useState("10:00");
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const n = () => {};
+
   const showAdded = () => {
     setAdded(true);
 

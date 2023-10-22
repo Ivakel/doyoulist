@@ -6,7 +6,7 @@ import Axios from "axios";
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const SideBar = ({ user, setTaskDescription, tasks, setTasks }) => {
-  const [prevClicked, setPrevClicked] = useState(null);
+  const [prevClicked, setPrevClicked] = useState(false);
 
   useEffect(() => {
     async function fetchTaskList() {
@@ -29,15 +29,20 @@ export const SideBar = ({ user, setTaskDescription, tasks, setTasks }) => {
         {tasks.map((task, index) => {
           return (
             <ListItem
+              firebaseId={user.uid}
+              setTasks={setTasks}
               task={task.taskName}
               aiMessage={task.aiMessage}
               setTaskDescription={setTaskDescription}
               setPrevClicked={setPrevClicked}
-              prevClicked={prevClicked}
+              taskId={task._id}
             />
           );
         })}
       </ul>
+      {/* {tasks.map((task, index) => {
+        console.log(task._id);
+      })} */}
     </div>
   );
 };

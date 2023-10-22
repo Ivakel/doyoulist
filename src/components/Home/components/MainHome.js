@@ -9,7 +9,7 @@ export const MainHome = ({ user, showAddTask }) => {
   const [taskDecription, setTaskDescription] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [added, setAdded] = useState(false);
-  console.log(added);
+
   return (
     <div className="MainHome">
       <SideBar

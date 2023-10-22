@@ -5,6 +5,8 @@
   transition: 0.5s;
   width: 99%;
   border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .ListItem:hover {
@@ -23,4 +25,22 @@
   margin-bottom: auto;
   margin-left: 0.5rem;
   font-size: 1.2rem;
+}
+
+.delete-task {
+  display: inline-block;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: rgb(175, 110, 110);
+  border: none;
+  border-radius: 3px;
+  height: 1.5rem;
+  margin-right: 5px;
+  color: white;
+  text-align: center;
+}
+
+.delete-task:hover {
+  background-color: rgb(179, 57, 57);
+  cursor: pointer;
 }
