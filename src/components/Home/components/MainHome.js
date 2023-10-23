@@ -3,15 +3,16 @@ import { SideBar } from "./SideBar";
 import { Section } from "./Section";
 import "../styles/MainHome.css";
 import { AddTask } from "./AddTask";
-// import BasicDatePicker from "./BasicDatePicker";
+import { Menu } from "./Menu";
 
-export const MainHome = ({ user, showAddTask }) => {
+export const MainHome = ({ user, showAddTask, toggle }) => {
   const [taskDecription, setTaskDescription] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [added, setAdded] = useState(false);
 
   return (
     <div className="MainHome">
+      {console.log(toggle)}
       <SideBar
         tasks={tasks}
         setTasks={setTasks}
@@ -24,6 +25,11 @@ export const MainHome = ({ user, showAddTask }) => {
         <p style={{ display: "none" }}></p>
       )}
 
+      {toggle ? (
+        <Menu style={{ display: toggle ? "inline" : "none" }} />
+      ) : (
+        <p style={{ display: "none" }}></p>
+      )}
       <div className="seperator"></div>
 
       <div

@@ -28,8 +28,24 @@
   margin-left: 1.2rem;
   height: 2.3rem;
   width: 2.3rem;
+  transition: 0.3s;
 }
 
+.xhamburger {
+  margin: auto 0;
+  margin-left: 1.2rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 1.5rem;
+  transition: 0.3s;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+.xhamburger:hover {
+  cursor: pointer;
+}
 .plus {
   width: 1.5rem;
   height: 1.5rem;
@@ -45,9 +61,7 @@
 .add {
   width: 1.7rem;
   height: 1.7rem;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 3rem;
+
   transition: 0.4s;
 }
 
@@ -71,4 +85,43 @@
 
 .bell:hover {
   cursor: pointer;
+}
+
+/* CSS */
+.button-22 {
+  width: 5.5rem;
+  height: 1.9rem;
+  align-items: center;
+  margin-right: 3rem;
+  appearance: button;
+  background-color: #5a87bb;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.15;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  text-transform: none;
+  transition: color 0.13s ease-in-out, background 0.13s ease-in-out,
+    opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-22:active {
+  background-color: #597ba3;
+}
+
+.button-22:hover {
+  background-color: #1c84ff;
 }

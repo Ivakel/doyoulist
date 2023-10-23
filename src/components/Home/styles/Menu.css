@@ -1,0 +1,60 @@
+.Menu {
+  position: absolute;
+  z-index: 1;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 10rem;
+  height: 10rem;
+  margin-left: 1%;
+  margin-top: 0rem;
+}
+
+.log-out {
+  display: flex;
+  width: 4.5rem;
+  height: 1.9rem;
+
+  align-items: center;
+
+  appearance: button;
+  background-color: #a05d4c;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.15;
+
+  margin-bottom: 0;
+
+  text-transform: none;
+  transition: color 0.13s ease-in-out, background 0.13s ease-in-out,
+    opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.log-out:active {
+  background-color: #a35959;
+  transform: scale(1.2);
+}
+
+.log-out:hover {
+  background-color: #eb4d4d;
+}
