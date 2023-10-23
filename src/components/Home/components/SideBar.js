@@ -25,21 +25,26 @@ export const SideBar = ({ user, setTaskDescription, tasks, setTasks }) => {
   }, [user.uid]);
   return (
     <div className="SideBar">
-      <ul className="task-list">
-        {tasks.map((task, index) => {
-          return (
-            <ListItem
-              firebaseId={user.uid}
-              setTasks={setTasks}
-              task={task.taskName}
-              aiMessage={task.aiMessage}
-              setTaskDescription={setTaskDescription}
-              setPrevClicked={setPrevClicked}
-              taskId={task._id}
-            />
-          );
-        })}
-      </ul>
+      {tasks.length === 0 ? (
+        <p className="add-task-txt">+ add a task</p>
+      ) : (
+        <ul className="task-list">
+          {tasks.map((task, index) => {
+            return (
+              <ListItem
+                firebaseId={user.uid}
+                setTasks={setTasks}
+                taskName={task.taskName}
+                aiMessage={task.aiMessage}
+                setTaskDescription={setTaskDescription}
+                setPrevClicked={setPrevClicked}
+                taskId={task._id}
+                task={task}
+              />
+            );
+          })}
+        </ul>
+      )}
       {/* {tasks.map((task, index) => {
         console.log(task._id);
       })} */}

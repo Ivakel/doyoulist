@@ -19,3 +19,12 @@
 .ListItem div:active {
   background-color: #8590bb;
 }
+
+.add-task-txt {
+  display: flex;
+  justify-content: center;
+  color: #8590bb;
+  font-size: 1.4rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}

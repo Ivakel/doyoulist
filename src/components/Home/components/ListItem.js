@@ -3,20 +3,25 @@ import "../styles/ListItem.css";
 import api from "../../../api/apis";
 
 export const ListItem = ({
-  task,
+  taskName,
   aiMessage,
   setTaskDescription,
   setPrevClicked,
   taskId,
   setTasks,
   firebaseId,
+  task,
 }) => {
   const [clicked, setClicked] = useState(false);
 
   const handleClick = async () => {
-    await api.post("/deleteTask", { firebaseId, taskId }).then((res) => {
+    await api.post("/deleteTask", { firebaseId, task }).then((res) => {
       console.log(res.data.taskList);
       setTasks(res.data.taskList);
+      setTaskDescription([]);
+      setPrevClicked((prevState) => {
+        return false;
+      });
     });
   };
 
@@ -38,7 +43,7 @@ export const ListItem = ({
           });
         }}
       >
-        <p className="li-txt">{task}</p>
+        <p className="li-txt">{taskName}</p>
       </li>
       {clicked ? (
         <button className="delete-task" onClick={handleClick}>

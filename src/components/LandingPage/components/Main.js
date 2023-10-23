@@ -1,5 +1,5 @@
 import React from "react";
-import ServicesBtn from "./ServicesBtn";
+
 import "../styles/Main.css";
 
 export const Main = () => {
@@ -12,7 +12,6 @@ export const Main = () => {
           and anyone looking to streamline their daily routine. Our easy-to-use
           to-do list keeps you organized and productive all day long.
         </p>
-        <ServicesBtn />
       </div>
       <div className="subject square">
         <img
