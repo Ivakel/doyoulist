@@ -5,7 +5,10 @@ import "./styles/SignUp.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { auth } from "../authentication/firebase-auth";
 import { User } from "../Helper/Context";
 import { Navigate } from "react-router-dom";
@@ -45,17 +48,21 @@ export const SignUp = () => {
     };
     quotes();
   }, []);
+  useEffect(() => {
+    onAuthStateChanged(auth, (data) => {
+      setUser(data);
+    });
+  }, [setUser]);
+
+  if (user) {
+    return <Navigate to="/home" />;
+  }
 
   const Submit = async (data) => {
-    let authUser = null;
     try {
-      authUser = await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
+      await createUserWithEmailAndPassword(auth, data.email, data.password);
 
-      const newData = { ...data, firebaseId: authUser.user.uid };
+      const newData = { ...data, firebaseId: user.uid };
       await api
         .post("/auth/signup", newData)
         .then((res) => {
@@ -67,10 +74,6 @@ export const SignUp = () => {
         return <Navigate to="/home" />;
       }
     } catch (error) {}
-    await setUser(authUser.user);
-    if (user) {
-      return <Navigate to="/home" />;
-    }
   };
 
   return (

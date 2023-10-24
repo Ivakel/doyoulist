@@ -2,12 +2,15 @@ import React, { useContext } from "react";
 import "../styles/Menu.css";
 import { User } from "../../Helper/Context";
 import { Navigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../authentication/firebase-auth";
 
 export const Menu = () => {
-  const { setAuth, setUser } = useContext(User);
+  const { setUser } = useContext(User);
   const handleLogout = () => {
+    signOut(auth);
     setUser(null);
-    setAuth(null);
+
     return <Navigate to="/login" />;
   };
   return (

@@ -77,6 +77,9 @@
     color: white;
   }
 }
+button.account-btn:active {
+  transform: scale(1.05);
+}
 
 .account-img {
   width: 1.2rem;
@@ -86,7 +89,7 @@
 
 button.log-out:active {
   background-color: #a35959;
-  transform: scale(1.2);
+  transform: scale(1.05);
 }
 
 button.log-out:hover {

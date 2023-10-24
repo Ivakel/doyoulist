@@ -5,7 +5,7 @@ import "./styles/Login.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../authentication/firebase-auth";
 import { User } from "../Helper/Context";
 import { Navigate } from "react-router-dom";
@@ -13,7 +13,7 @@ import { Navigate } from "react-router-dom";
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const Login = () => {
-  const { user, setUser, setAuth } = useContext(User);
+  const { user, setUser } = useContext(User);
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
@@ -32,40 +32,35 @@ export const Login = () => {
 
   useEffect(() => {
     const quotes = async () => {
-      return await Axios.get("http://localhost:5000/quote").then((data) => {
+      return await api.get("/quote").then((data) => {
         setQuote(data.data[0].q);
         setAuthor(data.data[0].a);
       });
     };
     quotes();
   }, []);
+  useEffect(() => {
+    onAuthStateChanged(auth, (data) => {
+      setUser(data);
+    });
+  }, [setUser]);
 
   if (user) {
     return <Navigate to="/home" />;
   }
 
   const Submit = async (data) => {
-    let authUser = null;
     try {
-      authUser = await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
+      await signInWithEmailAndPassword(auth, data.email, data.password);
 
       await api
-        .post("/auth/login", { firebaseId: authUser.user.uid })
+        .post("/auth/login", { firebaseId: user.uid })
         .then((res) => {
           console.log(res);
         })
         .catch((error) => console.log(error));
     } catch (error) {
       console.log(error);
-    }
-    await setUser(authUser.user);
-    await setAuth(authUser);
-    if (user) {
-      return <Navigate to="/home" />;
     }
   };
 
