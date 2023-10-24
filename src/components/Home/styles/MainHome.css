@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 24.3% 0.3% 75.4%;
   margin-top: 2px;
+  height: 89vh;
 }
 
 .added-poppup {
@@ -31,4 +32,39 @@
 
   display: inline-block;
   vertical-align: middle;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  margin-left: 49.4%;
+  margin-top: 35%;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 32px 0 #fff, -32px 0 #fff;
+
+  animation: flash 0.5s ease-out infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: #5a87bb;
+    box-shadow: 32px 0 #5a87bb, -32px 0 #fff;
+  }
+  50% {
+    background-color: #fff;
+    box-shadow: 32px 0 #5a87bb, -32px 0 #5a87bb;
+  }
+  100% {
+    background-color: #5a87bb;
+    box-shadow: 32px 0 #fff, -32px 0 #5a87bb;
+  }
 }

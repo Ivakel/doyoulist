@@ -1,12 +1,11 @@
-import { useState } from "react";
 import "../styles/TaskInput.css";
 
-export const TaskInput = (props) => {
+export const TaskInput = ({ setTaskName, setTaskDescription }) => {
   const handleName = (event) => {
-    props.setTaskName(event.target.value);
+    setTaskName(event.target.value);
   };
   const handleDescription = (event) => {
-    props.setTaskDescription(event.target.value);
+    setTaskDescription(event.target.value);
   };
   return (
     <div className="TaskInput">

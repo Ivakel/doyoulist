@@ -9,6 +9,7 @@ export const MainHome = ({ user, showAddTask, toggle }) => {
   const [taskDecription, setTaskDescription] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [added, setAdded] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="MainHome">
@@ -20,7 +21,13 @@ export const MainHome = ({ user, showAddTask, toggle }) => {
         setTaskDescription={setTaskDescription}
       />
       {showAddTask ? (
-        <AddTask setTasks={setTasks} user={user} setAdded={setAdded} />
+        <AddTask
+          setTasks={setTasks}
+          user={user}
+          setAdded={setAdded}
+          setLoading={setLoading}
+          loading={loading}
+        />
       ) : (
         <p style={{ display: "none" }}></p>
       )}
@@ -37,6 +44,9 @@ export const MainHome = ({ user, showAddTask, toggle }) => {
         style={{ display: added ? "flex" : "none" }}
       >
         <p>Task added</p>
+      </div>
+      <div className="loading" style={{ display: loading ? "flex" : "none" }}>
+        <span class="loader"></span>
       </div>
       <Section taskDecription={taskDecription} />
     </div>

@@ -13,7 +13,7 @@ import { Navigate } from "react-router-dom";
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const Login = () => {
-  const { user, setUser } = useContext(User);
+  const { user, setUser, setAuth } = useContext(User);
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
@@ -63,6 +63,7 @@ export const Login = () => {
       console.log(error);
     }
     await setUser(authUser.user);
+    await setAuth(authUser);
     if (user) {
       return <Navigate to="/home" />;
     }

@@ -38,9 +38,10 @@
   margin-right: 5px;
   color: white;
   text-align: center;
+  transition: background-color 0.13s ease-in-out;
 }
 
 .delete-task:hover {
-  background-color: rgb(179, 57, 57);
+  background-color: #eb4d4d;
   cursor: pointer;
 }

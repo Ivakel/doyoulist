@@ -7,20 +7,26 @@ import { TaskInput } from "./TaskInput";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
-export const AddTask = ({ user, setTasks, setAdded }) => {
+export const AddTask = ({ user, setTasks, setAdded, setLoading, loading }) => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState("10:00");
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
 
   const showAdded = () => {
+    setLoading(false);
     setAdded(true);
 
     setTimeout(() => setAdded(false), 3000);
   };
 
   const handleSubmit = () => {
+    if (loading) {
+      console.log("cancelled");
+      return;
+    }
     try {
+      setLoading(true);
       api
         .post("/add", {
           date,

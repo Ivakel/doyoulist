@@ -10,9 +10,10 @@ import { useState } from "react";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [auth, setAuth] = useState(null);
   return (
     <div className="App">
-      <User.Provider value={{ user, setUser }}>
+      <User.Provider value={{ user, setUser, auth, setAuth }}>
         <Routes>
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/signup" element={<SignUp />} />

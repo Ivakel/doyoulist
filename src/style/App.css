@@ -5,3 +5,6 @@
   --secondary: #abb9cf;
   --accent: #8c7886;
 }
+.App {
+  scroll-behavior: smooth;
+}
