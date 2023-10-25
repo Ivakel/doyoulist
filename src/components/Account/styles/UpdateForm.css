@@ -1,30 +1,25 @@
-.Menu {
-  position: absolute;
-  z-index: 1;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 10rem;
-  height: 10rem;
-  margin-left: 1%;
-  margin-top: 0rem;
-}
-
-.menu-container {
+.UpdateForm {
   display: flex;
   justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  flex-direction: column;
-  width: 90%;
-  gap: 0.4rem;
 }
 
-.menu-container button {
+.update-form {
+  gap: 10px;
+}
+
+.input-area {
+  height: 1.5rem;
+  border-radius: 3px;
+  border: none;
+  padding-left: 5px;
+}
+
+.input-area:focus {
+  border: none;
+  outline: none;
+}
+
+.update-submit {
   display: flex;
   width: 100%;
   height: 1.9rem;
@@ -58,45 +53,32 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}
-
-.account-btn {
   background-color: #5a87bb;
+
+  color: #fff;
+  font-size: 1rem;
 }
 
-.account-btn p {
+.update-submit p {
   display: flex;
   color: #fff;
   font-size: 1rem;
-  margin-left: 0.9rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.account-btn:hover {
+.update-submit:hover {
   background-color: #3973b4;
   .account-txt {
     color: white;
   }
 }
-button.account-btn:active {
+button.update-submit:active {
   transform: scale(1.05);
 }
 
-.account-img {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin: 0;
-}
-
-button.log-out:active {
-  background-color: #a35959;
-  transform: scale(1.05);
-}
-
-button.log-out:hover {
-  background-color: #eb4d4d;
-}
-button.log-out {
-  display: flex;
-  padding-left: 32%;
-  background-color: #a05d4c;
+::placeholder {
+  color: grey;
+  font-size: 0.85rem;
+  padding-left: 0;
 }

@@ -1,0 +1,9 @@
+.Update {
+  display: flex;
+  justify-content: center;
+}
+.update-wrapper {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+}

@@ -1,22 +1,26 @@
 import React, { useContext } from "react";
 import "../styles/Menu.css";
 import { User } from "../../Helper/Context";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../authentication/firebase-auth";
 
 export const Menu = () => {
+  const navigate = useNavigate();
   const { setUser } = useContext(User);
   const handleLogout = () => {
     signOut(auth);
     setUser(null);
 
-    return <Navigate to="/login" />;
+    navigate("/login");
+  };
+  const handleClick = () => {
+    navigate("/account");
   };
   return (
     <div className="Menu">
-      <div className="container">
-        <button className="account-btn">
+      <div className="menu-container">
+        <button className="account-btn" onClick={handleClick}>
           <img
             className="account-img"
             src={require("../assets/img/account.png")}

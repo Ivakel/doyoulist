@@ -28,12 +28,19 @@
   }
 }
 
-.account {
+.Account {
   display: flex;
-  margin-top: 30%;
-  margin-left: 30%;
+  justify-content: center;
+}
+
+.account-container {
+  display: flex;
+
+  justify-content: center;
+  margin-top: 10%;
+  flex-direction: column;
   width: 20%;
-  height: 20%;
+  height: 50vh;
   z-index: 1;
   /* From https://css.glass */
   background: rgba(200, 190, 190, 0.2);
@@ -44,7 +51,14 @@
   border: 1px solid rgba(200, 190, 190, 0.3);
 }
 
+.pic-wrapper {
+  display: flex;
+  margin-top: 1rem;
+}
 .profile-pic {
+  display: flex;
+  justify-content: center;
   width: 4rem;
   height: 4rem;
+  border-radius: 50%;
 }

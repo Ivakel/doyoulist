@@ -4,7 +4,7 @@ import "../styles/SignUpForm.css";
 
 export const SignUpForm = (props) => {
   return (
-    <div className="LoginForm">
+    <div className="SignUpForm">
       <p className="text">Sign up</p>
       <form onSubmit={props.handleSubmit(props.Submit)}>
         <label className="lbl-su">Email</label>
