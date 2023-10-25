@@ -4,7 +4,6 @@ import { User } from "../../Helper/Context";
 import { useContext } from "react";
 export const UpdateForm = ({ register, handleSubmit, Submit, errors }) => {
   const { user } = useContext(User);
-  console.log(user);
   return (
     <div className="UpdateForm">
       <form className="update-form" onSubmit={handleSubmit(Submit)}>
@@ -23,17 +22,6 @@ export const UpdateForm = ({ register, handleSubmit, Submit, errors }) => {
         >
           {errors.email?.message}
         </p>
-
-        {/* <input type="text" className="input-area" {...register("username")} />
-        <p
-          style={{
-            display: errors.username ? "inline" : "none",
-            color: "red",
-            fontSize: "0.8rem",
-          }}
-        >
-          {errors.username?.message}
-        </p> */}
 
         <input
           className="input-area"

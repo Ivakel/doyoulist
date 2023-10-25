@@ -12,7 +12,7 @@ export const Menu = () => {
     signOut(auth);
     setUser(null);
 
-    navigate("/login");
+    navigate("/auth/login");
   };
   const handleClick = () => {
     navigate("/account");

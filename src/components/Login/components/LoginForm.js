@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
 import "../styles/LoginForm.css";
 
-export const LoginForm = (props) => {
+export const LoginForm = ({ handleSubmit, Submit, register, errors }) => {
   return (
     <div className="LoginForm">
       <p className="text">Login</p>
-      <form onSubmit={props.handleSubmit(props.Submit)}>
+      <form onSubmit={handleSubmit(Submit)}>
         <label className="lbl-li">Email</label>
 
-        <input className="input-li" {...props.register("email")} />
+        <input className="input-li" {...register("email")} />
         <p
           style={{
-            display: props.errors.email ? "inline" : "none",
+            display: errors.email ? "inline" : "none",
             color: "red",
             fontSize: "0.8rem",
           }}
         >
-          {props.errors.email?.message}
+          {errors.email?.message}
         </p>
 
         <label className="lbl-li">Password</label>
@@ -24,16 +24,16 @@ export const LoginForm = (props) => {
           className="input-li"
           type="password"
           required
-          {...props.register("password")}
+          {...register("password")}
         />
         <p
           style={{
-            display: props.errors.password ? "inline" : "none",
+            display: errors.password ? "inline" : "none",
             color: "red",
             fontSize: "0.8rem",
           }}
         >
-          {props.errors.password?.message}
+          {errors.password?.message}
         </p>
         <input type="submit" className="submit-btn input-li" value="Login" />
       </form>

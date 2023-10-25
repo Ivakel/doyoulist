@@ -10,11 +10,9 @@ export const MainHome = ({ user, showAddTask, toggle }) => {
   const [tasks, setTasks] = useState([]);
   const [added, setAdded] = useState(false);
   const [loading, setLoading] = useState(false);
-  console.log(user?.uid);
 
   return (
     <div className="MainHome">
-      {console.log(toggle)}
       <SideBar
         tasks={tasks}
         setTasks={setTasks}

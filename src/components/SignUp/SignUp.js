@@ -11,16 +11,20 @@ import {
 } from "firebase/auth";
 import { auth } from "../authentication/firebase-auth";
 import { User } from "../Helper/Context";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const SignUp = () => {
   const { user, setUser } = useContext(User);
+  const navigate = useNavigate();
+  onAuthStateChanged(auth, (data) => {
+    setUser(data);
+    if (user) {
+      navigate("/home");
+    }
+  });
 
-  if (user) {
-    <Navigate to="/home" />;
-  }
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
@@ -40,6 +44,7 @@ export const SignUp = () => {
     resolver: yupResolver(schema),
   });
   useEffect(() => {
+    //getting the quote api
     const quotes = async () => {
       return await api.get("/quote").then((data) => {
         setQuote(data.data[0].q);
@@ -48,31 +53,27 @@ export const SignUp = () => {
     };
     quotes();
   }, []);
-  useEffect(() => {
-    onAuthStateChanged(auth, (data) => {
-      setUser(data);
-    });
-  }, [setUser]);
-
-  if (user) {
-    return <Navigate to="/home" />;
-  }
-
-  const Submit = async (data) => {
+  const Submit = async (dataSubmit) => {
     try {
-      await createUserWithEmailAndPassword(auth, data.email, data.password);
-
-      const newData = { ...data, firebaseId: user.uid };
-      await api
-        .post("/auth/signup", newData)
-        .then((res) => {
-          console.log(res.user ? res.user : res);
-        })
-        .catch((error) => console.log(error));
-      console.log(user);
-      if (user) {
-        return <Navigate to="/home" />;
-      }
+      await createUserWithEmailAndPassword(
+        auth,
+        dataSubmit.email,
+        dataSubmit.password
+      ).then(async (data) => {
+        const newData = { ...dataSubmit, firebaseId: data.user.uid };
+        console.log(newData);
+        await api
+          .post("/auth/signup", newData)
+          .then((res) => {
+            console.log(res.user ? res.user : res);
+          })
+          .catch((error) => console.log(error));
+        setUser((old) => {
+          return data.user;
+        });
+        console.log(data.user);
+        navigate("/home");
+      });
     } catch (error) {}
   };
 
