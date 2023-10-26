@@ -27,7 +27,6 @@ export const UpdateForm = ({ register, handleSubmit, Submit, errors }) => {
           className="input-area"
           type="password"
           placeholder="New password"
-          required
           {...register("password")}
         />
         <p
@@ -44,7 +43,6 @@ export const UpdateForm = ({ register, handleSubmit, Submit, errors }) => {
           className="input-area"
           type="password"
           placeholder="Confirm password"
-          required
           {...register("confirmPW")}
         />
         <p

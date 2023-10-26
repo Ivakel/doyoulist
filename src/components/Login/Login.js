@@ -9,6 +9,7 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../authentication/firebase-auth";
 import { User } from "../Helper/Context";
 import { Navigate } from "react-router-dom";
+import { ReactComponent as BackGroundImg } from "./assets/svg/Privacy-policy-pana.svg";
 
 const api = Axios.create({ baseURL: "http://localhost:5000" });
 
@@ -66,6 +67,7 @@ export const Login = () => {
 
   return (
     <div className="Login">
+      <BackGroundImg className="sign-up-bg" />
       <div className="wrapper">
         <LoginForm
           register={register}
@@ -73,14 +75,14 @@ export const Login = () => {
           Submit={Submit}
           errors={errors}
         />
-        <div className="calendar">
+        {/* <div className="calendar">
           <div className="quote">
             <blockquote>
               &ldquo;{quote !== "" ? quote : ""}.&rdquo; &mdash;{" "}
               <footer>{author !== "" ? author : ""}</footer>
             </blockquote>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

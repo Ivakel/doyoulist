@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+
 .UpdateForm {
   display: flex;
   justify-content: center;
@@ -81,4 +83,5 @@ button.update-submit:active {
   color: grey;
   font-size: 0.85rem;
   padding-left: 0;
+  font-family: "Raleway", sans-serif;
 }

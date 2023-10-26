@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { SignUpForm } from "./components/SignUpForm";
+import { ReactComponent as BackGroundImg } from "./assets/svg/Blog post-bro.svg";
 import Axios from "axios";
 import "./styles/SignUp.css";
 import { useForm } from "react-hook-form";
@@ -79,6 +80,7 @@ export const SignUp = () => {
 
   return (
     <div className="SignUp">
+      <BackGroundImg className="sign-up-bg" />
       <div className="wrapper">
         <SignUpForm
           register={register}
@@ -86,14 +88,14 @@ export const SignUp = () => {
           Submit={Submit}
           errors={errors}
         />
-        <div className="calendar">
+        {/* <div className="calendar">
           <div className="quote">
             <blockquote>
               &ldquo;{quote !== "" ? quote : ""}.&rdquo; &mdash;{" "}
               <footer>{author !== "" ? author : ""}</footer>
             </blockquote>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

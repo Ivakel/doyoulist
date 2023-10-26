@@ -1,22 +1,23 @@
-:root {
-  --text: #0c0e0d;
-  --background: #dee0e8;
-  --primary: #b6aab3;
-  --secondary: #abb9cf;
-  --accent: #8c7886;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 .SignUpForm {
   margin: 0;
-  background-color: #abb9cf;
-  color: var(--text);
+
+  color: #0c0e0d;
+  width: 100%;
   display: flex;
   justify-items: center;
   flex-direction: column;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .wrapper {
-  width: 40%;
+  width: 30%;
 
   margin-left: auto;
   margin-right: auto;
@@ -39,10 +40,24 @@ form {
 .input-su {
   margin-bottom: 1rem;
   height: 2.2rem;
-  border-radius: 5px;
+
   border: #a8a8a8 solid 1px;
   padding-left: 5px;
   width: 97%;
+  font-size: 1rem;
+  font-family: "Raleway", sans-serif;
+  /* From https://css.glass */
+  background: rgba(148, 148, 171, 0.12);
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(148, 148, 171, 0.72);
+}
+
+.input-su:focus {
+  border: none;
+  outline: none;
 }
 .text {
   text-align: center;
@@ -73,4 +88,10 @@ form {
 
 .Signup {
   text-decoration: none;
+}
+::placeholder {
+  color: grey;
+  font-size: 0.85rem;
+  padding-left: 0;
+  font-family: "Raleway", sans-serif;
 }

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+
 .bg {
   animation: slide 3s ease-in-out infinite alternate;
   background-image: linear-gradient(-60deg, rgb(27, 42, 88) 50%, #09f 50%);
@@ -31,6 +33,7 @@
 .Account {
   display: flex;
   justify-content: center;
+  font-family: "Raleway", sans-serif;
 }
 
 .account-container {
@@ -39,7 +42,7 @@
   justify-content: center;
   margin-top: 10%;
   flex-direction: column;
-  width: 20%;
+  width: 30%;
   height: 50vh;
   z-index: 1;
   /* From https://css.glass */

@@ -8,6 +8,7 @@ import { LandingPage } from "./LandingPage/LandingPage";
 import { Home } from "./Home/Home";
 import { useState } from "react";
 import { Account } from "./Account/Account";
+import ForgotPassword from "./ForgotPassword/ForgotPassword";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/auth/password" element={<ForgotPassword />} />
         </Routes>
       </User.Provider>
     </div>

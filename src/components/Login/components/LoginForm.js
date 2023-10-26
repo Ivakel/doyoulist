@@ -21,7 +21,7 @@ export const LoginForm = ({ handleSubmit, Submit, register, errors }) => {
 
         <label className="lbl-li">Password</label>
         <input
-          className="input-li"
+          className="input-li li-pw"
           type="password"
           required
           {...register("password")}
@@ -36,7 +36,11 @@ export const LoginForm = ({ handleSubmit, Submit, register, errors }) => {
           {errors.password?.message}
         </p>
         <input type="submit" className="submit-btn input-li" value="Login" />
+        <Link to="/auth/password" style={{ color: "black" }}>
+          Forgot your password?
+        </Link>
       </form>
+
       <p className="login text" style={{ fontSize: "1rem" }}>
         Don't have an account?{" "}
         {

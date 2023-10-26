@@ -19,7 +19,7 @@ export const Updates = () => {
   const schema = yup.object().shape({
     email: yup.string().email(),
     username: yup.string().min(5).max(12),
-    password: yup.string().min(8).max(12),
+    password: yup.string().min(0),
     confirmPW: yup
       .string()
       .oneOf([yup.ref("password"), null], "Passwords do not match"),
