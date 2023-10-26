@@ -6,6 +6,7 @@ import { auth } from "../authentication/firebase-auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { ReactComponent as BackGroundImg } from "./assets/svg/Update-bro.svg";
 
 export const Account = () => {
   const { user } = useContext(User);
@@ -36,18 +37,14 @@ export const Account = () => {
             src={require("./assets/img/profile-pic.jpg")}
           />
         </div>
-        <div className="updates">
-          <Updates
-            register={register}
-            handleSubmit={handleSubmit}
-            Submit={Submit}
-            errors={errors}
-          />
-        </div>
+        <Updates
+          register={register}
+          handleSubmit={handleSubmit}
+          Submit={Submit}
+          errors={errors}
+        />
       </div>
-      <div className="bg"></div>
-      <div className="bg bg2"></div>
-      <div className="bg bg3"></div>
+      <BackGroundImg className="account-bg" />
     </div>
   );
 };

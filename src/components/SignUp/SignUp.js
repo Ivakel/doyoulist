@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { SignUpForm } from "./components/SignUpForm";
 import { ReactComponent as BackGroundImg } from "./assets/svg/Blog post-bro.svg";
 import Axios from "axios";
@@ -26,9 +26,6 @@ export const SignUp = () => {
     }
   });
 
-  const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
-
   const schema = yup.object().shape({
     email: yup.string().email().required("Email required"),
     username: yup.string().min(5).max(12),
@@ -44,16 +41,7 @@ export const SignUp = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  useEffect(() => {
-    //getting the quote api
-    const quotes = async () => {
-      return await api.get("/quote").then((data) => {
-        setQuote(data.data[0].q);
-        setAuthor(data.data[0].a);
-      });
-    };
-    quotes();
-  }, []);
+
   const Submit = async (dataSubmit) => {
     try {
       await createUserWithEmailAndPassword(
@@ -88,14 +76,6 @@ export const SignUp = () => {
           Submit={Submit}
           errors={errors}
         />
-        {/* <div className="calendar">
-          <div className="quote">
-            <blockquote>
-              &ldquo;{quote !== "" ? quote : ""}.&rdquo; &mdash;{" "}
-              <footer>{author !== "" ? author : ""}</footer>
-            </blockquote>
-          </div>
-        </div> */}
       </div>
     </div>
   );

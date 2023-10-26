@@ -18,32 +18,18 @@
   justify-content: center;
 }
 
-.wrapper {
+.login-wrapper {
+  position: absolute;
+  z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
+  width: 40%;
   margin: 2%;
-  margin-top: 3%;
+  margin-top: 5%;
 }
 .LoginForm {
   width: 100%;
 
   border-radius: 5px;
-}
-.calendar {
-  display: flex;
-  width: 50%;
-  margin-right: 0;
-  background-color: #554952;
-  margin-left: 13%;
-  border-radius: 25px;
-  background-image: url("C:/ProgPrac/doyoulist/src/assets/svg/banner-bg.svg");
-  background-size: cover;
-}
-.quote {
-  margin: auto;
-  padding: 1rem;
-  font-size: 2rem;
-  color: #171921;
 }

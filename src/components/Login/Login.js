@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { LoginForm } from "./components/LoginForm";
 import Axios from "axios";
 import "./styles/Login.css";
@@ -15,8 +15,6 @@ const api = Axios.create({ baseURL: "http://localhost:5000" });
 
 export const Login = () => {
   const { user, setUser } = useContext(User);
-  const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
 
   const schema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Email required"),
@@ -31,15 +29,6 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  useEffect(() => {
-    const quotes = async () => {
-      return await api.get("/quote").then((data) => {
-        setQuote(data.data[0].q);
-        setAuthor(data.data[0].a);
-      });
-    };
-    quotes();
-  }, []);
   useEffect(() => {
     onAuthStateChanged(auth, (data) => {
       setUser(data);
@@ -68,21 +57,13 @@ export const Login = () => {
   return (
     <div className="Login">
       <BackGroundImg className="sign-up-bg" />
-      <div className="wrapper">
+      <div className="login-wrapper">
         <LoginForm
           register={register}
           handleSubmit={handleSubmit}
           Submit={Submit}
           errors={errors}
         />
-        {/* <div className="calendar">
-          <div className="quote">
-            <blockquote>
-              &ldquo;{quote !== "" ? quote : ""}.&rdquo; &mdash;{" "}
-              <footer>{author !== "" ? author : ""}</footer>
-            </blockquote>
-          </div>
-        </div> */}
       </div>
     </div>
   );

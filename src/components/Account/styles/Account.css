@@ -1,57 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 
-.bg {
-  animation: slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, rgb(27, 42, 88) 50%, #09f 50%);
-  bottom: 0;
-  left: -50%;
-  opacity: 0.5;
-  position: fixed;
-  right: -50%;
-  top: 0;
-  z-index: -1;
-}
-
-.bg2 {
-  animation-direction: alternate-reverse;
-  animation-duration: 4s;
-}
-
-.bg3 {
-  animation-duration: 5s;
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(25%);
-  }
-}
-
 .Account {
+  background-image: linear-gradient(90deg, #abb9cf 10%, #171921 90%);
   display: flex;
   justify-content: center;
   font-family: "Raleway", sans-serif;
 }
-
+.account-bg {
+  height: 100vh;
+}
 .account-container {
+  position: absolute;
+  z-index: 1;
   display: flex;
 
   justify-content: center;
   margin-top: 10%;
   flex-direction: column;
-  width: 30%;
-  height: 50vh;
+  width: 35%;
+  height: 60vh;
   z-index: 1;
   /* From https://css.glass */
-  background: rgba(200, 190, 190, 0.2);
+  background: rgba(148, 148, 171, 0.43);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(200, 190, 190, 0.3);
+  backdrop-filter: blur(8.2px);
+  -webkit-backdrop-filter: blur(8.2px);
+  border: 1px solid rgba(148, 148, 171, 0.78);
 }
 
 .pic-wrapper {
@@ -61,7 +36,7 @@
 .profile-pic {
   display: flex;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
 }

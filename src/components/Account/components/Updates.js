@@ -33,6 +33,7 @@ export const Updates = () => {
   });
 
   const Submit = async (data) => {
+    return;
     const promises = [];
     if (data.email) {
       promises.push(updateEmail(user, data.email));
