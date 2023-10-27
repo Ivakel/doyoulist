@@ -17,7 +17,8 @@
 .list-item {
   display: flex;
   margin-top: 6px;
-  top: 50%;
+  width: 80%;
+  /* top: 50%; */
 }
 
 .li-txt {
@@ -25,6 +26,11 @@
   margin-bottom: auto;
   margin-left: 0.5rem;
   font-size: 1.2rem;
+
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .delete-task {

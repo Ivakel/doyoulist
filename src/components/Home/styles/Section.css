@@ -55,7 +55,8 @@
 }
 
 .list {
-  height: 92vh;
+  height: 100%;
   width: 95%;
   overflow: auto;
+  margin: 0;
 }
