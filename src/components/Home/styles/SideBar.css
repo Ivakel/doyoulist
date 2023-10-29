@@ -28,7 +28,8 @@ ul::-webkit-scrollbar-button {
 .task-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  justify-content: flex-start;
+  gap: 0.7rem;
   margin-left: -2rem;
   margin-top: 1rem;
   line-height: 1;

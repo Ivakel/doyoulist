@@ -10,15 +10,14 @@
 }
 
 .ListItem:hover {
-  background-color: #8590bb;
+  background-color: #545d80;
   cursor: pointer;
 }
 
 .list-item {
   display: flex;
-  margin-top: 6px;
+
   width: 80%;
-  /* top: 50%; */
 }
 
 .li-txt {
