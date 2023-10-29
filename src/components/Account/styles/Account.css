@@ -15,10 +15,10 @@
   display: flex;
 
   justify-content: center;
-  margin-top: 10%;
+  margin-top: 8%;
   flex-direction: column;
   width: 35%;
-  height: 60vh;
+  height: 70vh;
   z-index: 1;
   /* From https://css.glass */
   background: rgba(148, 148, 171, 0.43);
@@ -39,4 +39,7 @@
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
+}
+
+.account-update-errors {
 }

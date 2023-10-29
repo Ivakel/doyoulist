@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+
+.DisplayInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin-top: 1rem;
+}
+
+.update-form {
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.display-info {
+  display: flex;
+
+  align-items: center;
+  height: 2.3rem;
+  font-size: 1rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  /* From https://css.glass */
+  background: rgba(183, 179, 201, 0.37);
+  border-radius: 3px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.4px);
+  -webkit-backdrop-filter: blur(11.4px);
+  border: 1px solid rgba(136, 126, 177, 0.41);
+  margin-bottom: 0.5rem;
+  padding-left: 0.6rem;
+}
+
+.input-area:focus {
+  border: none;
+  outline: none;
+}
+
+.diplay-btn {
+  display: flex;
+  width: auto;
+
+  align-items: center;
+  justify-content: center;
+
+  appearance: button;
+
+  height: 1.5rem;
+  /* From https://css.glass */
+
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.4px);
+  -webkit-backdrop-filter: blur(11.4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+  font-family: "Raleway", sans-serif;
+  border: none;
+  color: rgb(9, 28, 70);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  transform: all 1s;
+}
+.diplay-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.diplay-btn:active {
+  transform: scale(1.05);
+}
+
+button.update-submit:active {
+  transform: scale(1.05);
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.582);
+  font-size: 0.85rem;
+  padding-left: 0;
+  font-family: "Raleway", sans-serif;
+}

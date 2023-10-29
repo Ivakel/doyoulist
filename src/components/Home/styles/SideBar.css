@@ -40,6 +40,9 @@ ul::-webkit-scrollbar-button {
   height: 3rem;
   margin-bottom: 1rem;
 }
+.ListItem:hover {
+  background-color: #8590bb;
+}
 .ListItem div:active {
   background-color: #8590bb;
 }

@@ -1,63 +1,63 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { updateEmail, updatePassword } from "firebase/auth";
+import {
+  updateEmail,
+  updatePassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { auth } from "../../authentication/firebase-auth";
 import { User } from "../../Helper/Context";
 
 import { UpdateForm } from "./UpdateForm";
 import "../styles/Update.css";
-import api from "../../../api/apis";
+
 import { useNavigate } from "react-router-dom";
+import DisplayInfo from "./DisplayInfo";
+import UpdateEmailPopUp from "./UpdateEmailPopUp";
+import UpdateUsername from "./UpdateUsername";
 
 export const Updates = () => {
-  const { user } = useContext(User);
+  const { user, setUser } = useContext(User);
   const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [showEmailUpdate, setShowEmailUpdate] = useState(false);
+  const [showUserNameUpdate, setShowUserNameUpdate] = useState(false);
+  const [username, setUsername] = useState("");
 
-  const schema = yup.object().shape({
-    email: yup.string().email(),
-    username: yup.string().min(5).max(12),
-    password: yup.string().min(0),
-    confirmPW: yup
-      .string()
-      .oneOf([yup.ref("password"), null], "Passwords do not match"),
-  });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const Submit = async (data) => {
-    return;
-    const promises = [];
-    if (data.email) {
-      promises.push(updateEmail(user, data.email));
+  useEffect(() => {
+    if (!user) {
+      return navigate("/auth/login");
     }
-    if (data.password) {
-      promises.push(updatePassword(user, data.password));
-    }
-    Promise.all(promises)
-      .then(() => {
-        navigate("/home");
-      })
-      .catch((error) => console.log(error));
-  };
+  }, [user, navigate]);
 
   return (
     <div className="Update">
       <div className="update-wrapper">
-        <UpdateForm
-          register={register}
-          handleSubmit={handleSubmit}
-          Submit={Submit}
-          errors={errors}
+        <DisplayInfo
           user={user}
+          style={{ PointerEvent: showEmailUpdate ? "none" : "auto" }}
+          setShowEmailUpdate={setShowEmailUpdate}
+          setShowUserNameUpdate={setShowUserNameUpdate}
+          username={username}
+          setUsername={setUsername}
         />
+        {showEmailUpdate && (
+          <UpdateEmailPopUp
+            setShowEmailUpdate={setShowEmailUpdate}
+            user={user}
+            setUser={setUser}
+          />
+        )}
+        {showUserNameUpdate && (
+          <UpdateUsername
+            setShowUserNameUpdate={setShowUserNameUpdate}
+            user={user}
+            setUsername={setUsername}
+          />
+        )}
       </div>
     </div>
   );
