@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles/Account.css";
 import { Updates } from "./components/Updates";
 import { ReactComponent as BackGroundImg } from "./assets/svg/Update-bro.svg";

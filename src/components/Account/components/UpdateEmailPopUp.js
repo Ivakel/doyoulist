@@ -1,16 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { ReactComponent as BackArrow } from "../assets/svg/cancel-close-10373.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {
   verifyBeforeUpdateEmail,
-  onAuthStateChanged,
   reauthenticateWithCredential,
   EmailAuthProvider,
 } from "firebase/auth";
-import api from "../../../api/apis";
-import { auth } from "../../authentication/firebase-auth";
 
 import "../styles/UpdateEmailPopUp.css";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +17,6 @@ export default function UpdateEmailPopUp({
   setShowEmailUpdate,
   setUser,
 }) {
-  const [error, setError] = useState("");
   const [checkMail, setCheckMail] = useState(false);
   const navigate = useNavigate();
   const schema = yup.object().shape({
@@ -53,14 +49,6 @@ export default function UpdateEmailPopUp({
           navigate("/auth/login");
         }
       );
-
-      return;
-      setCheckMail(true);
-
-      setTimeout(() => {
-        setCheckMail(false);
-        navigate("/auth/login");
-      }, 3000);
     } catch (error) {
       console.log(error, "error");
     }

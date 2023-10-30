@@ -1,16 +1,16 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { ReactComponent as BackArrow } from "../assets/svg/cancel-close-10373.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import "../styles/UpdateUsername.css";
-import { useNavigate } from "react-router-dom";
+
 import api from "../../../api/apis";
 
 export default function UpdateUsername({
   user,
-  username,
+
   setUsername,
   setShowUserNameUpdate,
 }) {

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/SideBar.css";
 import { ListItem } from "./ListItem";
-import Axios from "axios";
-
-const api = Axios.create({ baseURL: "http://localhost:5000" });
+import api from "../../../api/apis";
 
 export const SideBar = ({ user, setTaskDescription, tasks, setTasks }) => {
   const [prevClicked, setPrevClicked] = useState(false);

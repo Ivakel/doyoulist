@@ -1,17 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import {
-  updateEmail,
-  updatePassword,
-  sendEmailVerification,
-} from "firebase/auth";
-import { auth } from "../../authentication/firebase-auth";
 import { User } from "../../Helper/Context";
 
-import { UpdateForm } from "./UpdateForm";
 import "../styles/Update.css";
 
 import { useNavigate } from "react-router-dom";
