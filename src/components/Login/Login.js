@@ -1,6 +1,6 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LoginForm } from "./components/LoginForm";
-import Axios from "axios";
+
 import "./styles/Login.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,11 +10,11 @@ import { auth } from "../authentication/firebase-auth";
 import { User } from "../Helper/Context";
 import { Navigate } from "react-router-dom";
 import { ReactComponent as BackGroundImg } from "./assets/svg/Privacy-policy-pana.svg";
-
-const api = Axios.create({ baseURL: "http://localhost:5000" });
+import api from "../../api/apis";
 
 export const Login = () => {
   const { user, setUser } = useContext(User);
+  const [backendLoginError, setBackendLoginError] = useState(false);
 
   const schema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Email required"),
@@ -51,6 +51,7 @@ export const Login = () => {
         .catch((error) => console.log(error));
     } catch (error) {
       console.log(error);
+      setBackendLoginError(true);
     }
   };
 
@@ -63,6 +64,8 @@ export const Login = () => {
           handleSubmit={handleSubmit}
           Submit={Submit}
           errors={errors}
+          backendLoginError={backendLoginError}
+          setBackendLoginError={setBackendLoginError}
         />
       </div>
     </div>

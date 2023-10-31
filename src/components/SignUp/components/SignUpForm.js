@@ -2,10 +2,25 @@ import { Link } from "react-router-dom";
 
 import "../styles/SignUpForm.css";
 
-export const SignUpForm = ({ errors, handleSubmit, Submit, register }) => {
+export const SignUpForm = ({
+  errors,
+  handleSubmit,
+  Submit,
+  register,
+
+  backendSignUpError,
+}) => {
   return (
     <div className="SignUpForm">
       <p className="text">Sign up</p>
+      {backendSignUpError && (
+        <p
+          className="error-display"
+          style={{ color: "#ee2e54", fontSize: "1rem" }}
+        >
+          Unable to signup, try again later
+        </p>
+      )}
       <form onSubmit={handleSubmit(Submit)}>
         <label className="lbl-su">Email</label>
 
@@ -65,11 +80,12 @@ export const SignUpForm = ({ errors, handleSubmit, Submit, register }) => {
         >
           {errors.confirmPW?.message}
         </p>
+
         <input type="submit" className="submit-btn input-su" value="Sign up" />
+        <p className="login text" style={{ fontSize: "1rem" }}>
+          Already have an account? {<Link to="/auth/Login">Login</Link>}
+        </p>
       </form>
-      <p className="login text" style={{ fontSize: "1rem" }}>
-        Already have an account? {<Link to="/auth/Login">Login</Link>}
-      </p>
     </div>
   );
 };

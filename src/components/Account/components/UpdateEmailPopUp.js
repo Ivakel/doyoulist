@@ -18,6 +18,7 @@ export default function UpdateEmailPopUp({
   setUser,
 }) {
   const [checkMail, setCheckMail] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
   const schema = yup.object().shape({
     email: yup.string().email(),
@@ -40,7 +41,7 @@ export default function UpdateEmailPopUp({
         user.email,
         data.password
       );
-      const result = await reauthenticateWithCredential(user, credential).then(
+      await reauthenticateWithCredential(user, credential).then(
         async (currUser) => {
           await verifyBeforeUpdateEmail(currUser.user, data.email);
           setCheckMail(true);
@@ -50,7 +51,7 @@ export default function UpdateEmailPopUp({
         }
       );
     } catch (error) {
-      console.log(error, "error");
+      setError(true);
     }
   };
   return (
@@ -59,10 +60,11 @@ export default function UpdateEmailPopUp({
         <button className="email-update-back-btn" onClick={handleCancel}>
           <BackArrow className="back-arrow" />
         </button>
+        {error && <p className="email-update-error">Unable to add task</p>}
       </div>
       {checkMail && (
         <div className="email-update-success">
-          Check your email to verify it.
+          Unable to update email, try again.
         </div>
       )}
       <form className="update-form" onSubmit={handleSubmit(Submit)}>

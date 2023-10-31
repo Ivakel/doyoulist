@@ -6,10 +6,20 @@ export const ForgotPassworForm = ({
   Submit,
   register,
   errors,
+  success,
+  error,
 }) => {
   return (
     <div className="ForgotPassworForm">
       <p className="text">Password reset</p>
+      {success && (
+        <div className="password-update-success">
+          Check your email to change password.
+        </div>
+      )}
+      {error && (
+        <div className="password-update-error">User email not found.</div>
+      )}
       <form onSubmit={handleSubmit(Submit)}>
         <label className="">Email</label>
 

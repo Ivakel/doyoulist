@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import Axios from "axios";
+
 import "../styles/AddTask.css";
 import { DateSelector } from "./DateSelector";
 import { TimeSelector } from "./TimeSelector";
 import { TaskInput } from "./TaskInput";
-
-const api = Axios.create({ baseURL: "http://localhost:5000" });
+import api from "../../../api/apis";
 
 export const AddTask = ({ user, setTasks, setAdded, setLoading, loading }) => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState("10:00");
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const [addtaskError, setAddtaskError] = useState(false);
 
   const showAdded = () => {
     setLoading(false);
@@ -40,12 +40,13 @@ export const AddTask = ({ user, setTasks, setAdded, setLoading, loading }) => {
           showAdded();
         });
     } catch (error) {
-      console.log(error);
+      setAddtaskError(true);
     }
   };
 
   return (
     <div className="AddTask">
+      {addtaskError && <p className="addtask-error">Unable to add task</p>}
       <div className="details">
         <TaskInput
           setTaskName={setTaskName}

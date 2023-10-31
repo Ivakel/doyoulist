@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
 import "../styles/LoginForm.css";
 
-export const LoginForm = ({ handleSubmit, Submit, register, errors }) => {
+export const LoginForm = ({
+  handleSubmit,
+  Submit,
+  register,
+  errors,
+  setBackendLoginError,
+  backendLoginError,
+}) => {
   return (
     <div className="LoginForm">
       <p className="text">Login</p>
+      {backendLoginError && (
+        <p className="error-display">Unable to login, try again later</p>
+      )}
+
       <form onSubmit={handleSubmit(Submit)}>
         <label className="lbl-li">Email</label>
 
@@ -35,6 +46,7 @@ export const LoginForm = ({ handleSubmit, Submit, register, errors }) => {
         >
           {errors.password?.message}
         </p>
+        <hr />
         <input type="submit" className="submit-btn input-li" value="Login" />
         <Link to="/auth/password" style={{ color: "black" }}>
           Forgot your password?

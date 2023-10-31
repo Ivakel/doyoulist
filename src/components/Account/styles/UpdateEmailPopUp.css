@@ -119,3 +119,8 @@ button.update-submit:active {
   padding-left: 0;
   font-family: "Raleway", sans-serif;
 }
+.email-update-error {
+  display: flex;
+  justify-content: center;
+  color: #ee2e54;
+}

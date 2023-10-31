@@ -22,7 +22,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  height: 90vh;
+  height: 88vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -84,6 +84,12 @@ form {
 .login a {
   color: rgb(22, 132, 223);
   text-decoration: none;
+}
+.error-display {
+  margin: 0;
+}
+.login.text {
+  margin: 0;
 }
 
 .Signup {

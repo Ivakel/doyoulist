@@ -12,13 +12,17 @@ export default function DisplayInfo({
   useEffect(() => {
     const getUsername = async () => {
       if (user?.uid) {
-        await api.post("/username", { firebaseId: user.uid }).then((res) => {
-          setUsername(res.data.username);
-        });
+        try {
+          await api.post("/username", { firebaseId: user.uid }).then((res) => {
+            setUsername(res.data.username);
+          });
+        } catch (error) {
+          console.log(error);
+        }
       }
     };
     getUsername();
-  }, []);
+  }, [setUsername, user?.uid]);
   const handleChangeEmail = () => {
     setShowEmailUpdate(true);
   };

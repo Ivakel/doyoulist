@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SignUpForm } from "./components/SignUpForm";
 import { ReactComponent as BackGroundImg } from "./assets/svg/Blog post-bro.svg";
-import Axios from "axios";
+
 import "./styles/SignUp.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,10 +13,10 @@ import {
 import { auth } from "../authentication/firebase-auth";
 import { User } from "../Helper/Context";
 import { useNavigate } from "react-router-dom";
-
-const api = Axios.create({ baseURL: "http://localhost:5000" });
+import api from "../../api/apis";
 
 export const SignUp = () => {
+  const [backendSignUpError, setBackendSignUpError] = useState(false);
   const { user, setUser } = useContext(User);
   const navigate = useNavigate();
   onAuthStateChanged(auth, (data) => {
@@ -49,21 +49,30 @@ export const SignUp = () => {
         dataSubmit.email,
         dataSubmit.password
       ).then(async (data) => {
-        const newData = { ...dataSubmit, firebaseId: data.user.uid };
+        const newData = {
+          email: dataSubmit.email,
+          username: dataSubmit.username,
+          firebaseId: data.user.uid,
+        };
         console.log(newData);
         await api
           .post("/auth/signup", newData)
           .then((res) => {
             console.log(res.user ? res.user : res);
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            console.log(error);
+            setBackendSignUpError(true);
+          });
         setUser((old) => {
           return data.user;
         });
         console.log(data.user);
         navigate("/home");
       });
-    } catch (error) {}
+    } catch (error) {
+      setBackendSignUpError(true);
+    }
   };
 
   return (
@@ -75,6 +84,8 @@ export const SignUp = () => {
           handleSubmit={handleSubmit}
           Submit={Submit}
           errors={errors}
+          backendSignUpError={backendSignUpError}
+          setBackendSignUpError={setBackendSignUpError}
         />
       </div>
     </div>
