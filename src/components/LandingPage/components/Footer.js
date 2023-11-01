@@ -7,7 +7,9 @@ export const Footer = () => {
   const [email, setEmail] = useState("");
   const handleSubmit = async () => {
     try {
-      await api.post("/newsletter", { email });
+      await api.post("/newsletter", { email }).then((res) => {
+        console.log(res);
+      });
     } catch (error) {
       console.log(error);
     }
