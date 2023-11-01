@@ -8,14 +8,16 @@ export const Footer = () => {
   const handleSubmit = async () => {
     try {
       await api.post("/newsletter", { email });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="Footer">
       <p className="subscribeTxt">Subscribe to Newsletter</p>
       <form>
         <label className="footerLbl">
-          Enter your email address to register to our newsletter subscription!{" "}
+          Enter your email address to register to our newsletter subscription!
         </label>
         <input
           type="email"
