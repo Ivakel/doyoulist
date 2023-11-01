@@ -7,9 +7,6 @@ export const Navigation = () => {
       <p className="title">DOYOULIST</p>
       <div className="components">
         <Link id="links" className="link">
-          Services
-        </Link>
-        <Link id="links" className="link">
           About
         </Link>
         <Link id="links" className="link">

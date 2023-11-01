@@ -15,7 +15,7 @@ export const LandingPage = () => {
       </nav>
 
       <Main className="main" />
-      <Services />
+      {/* <Services /> */}
       <Features />
       <Footer />
     </div>
