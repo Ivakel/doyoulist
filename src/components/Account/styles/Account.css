@@ -43,3 +43,8 @@
 
 .account-update-errors {
 }
+.account-title {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+}

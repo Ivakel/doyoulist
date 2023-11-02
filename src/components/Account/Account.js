@@ -14,7 +14,7 @@ export const Account = () => {
             src={require("./assets/img/profile-pic.jpg")}
           />
         </div> */}
-        <p className="account-update-errors"></p>
+        <p className="account-title">Account</p>
         <Updates />
       </div>
       <BackGroundImg className="account-bg" />
