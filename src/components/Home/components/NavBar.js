@@ -24,7 +24,7 @@ export const NavBar = ({ setShowAddTask, showAddTask, toggle, setToggle }) => {
       )}
 
       <div className="right">
-        <button class="button-22" onClick={handleAdd}>
+        <button className="button-22" onClick={handleAdd}>
           + New Task
         </button>
         <div className="Notification">

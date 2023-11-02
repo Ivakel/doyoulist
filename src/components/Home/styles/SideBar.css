@@ -53,7 +53,7 @@ ul::-webkit-scrollbar-button {
 .add-task-txt {
   display: flex;
   justify-content: center;
-  color: #8590bb;
+  color: #f8f8f8;
   font-size: 1.4rem;
   margin-top: auto;
   margin-bottom: auto;

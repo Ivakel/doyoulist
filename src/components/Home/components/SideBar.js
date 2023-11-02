@@ -9,11 +9,9 @@ export const SideBar = ({ user, setTaskDescription, tasks, setTasks }) => {
   useEffect(() => {
     async function fetchTaskList() {
       try {
-        await api
-          .post("/taskList", { firebaseId: user.uid, name: "car" })
-          .then((res) => {
-            setTasks(res.data.taskList);
-          });
+        await api.post("/taskList", { firebaseId: user.uid }).then((res) => {
+          setTasks(res.data.taskList);
+        });
       } catch (error) {
         console.log(error);
       }

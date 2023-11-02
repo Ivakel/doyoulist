@@ -7,13 +7,13 @@ export const Account = () => {
   return (
     <div className="Account">
       <div className="account-container ">
-        <div className="pic-wrapper">
+        {/* <div className="pic-wrapper">
           <img
             alt="profile"
             className="profile-pic"
             src={require("./assets/img/profile-pic.jpg")}
           />
-        </div>
+        </div> */}
         <p className="account-update-errors"></p>
         <Updates />
       </div>

@@ -1,6 +1,7 @@
 .Features {
   background-color: #abb9cf;
   display: flex;
+
   margin-top: 6rem;
   width: 100%;
   margin-left: auto;
@@ -9,6 +10,7 @@
 }
 
 .cards {
+  display: flex;
 }
 
 img {
