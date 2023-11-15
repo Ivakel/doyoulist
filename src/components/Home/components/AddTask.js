@@ -60,9 +60,18 @@ export const AddTask = ({ user, setTasks, setAdded, setLoading, loading }) => {
 
         <TimeSelector setTime={setTime} />
       </div>
-      <button onClick={handleSubmit} type="button" className="add-task">
-        Add task
-      </button>
+      {loading ? (
+        <div className="loading" style={{ display: loading ? "flex" : "none" }}>
+          <p className="waiting-txt">
+            Please wait, this may take a few seconds...
+          </p>
+          <span class="loader"></span>
+        </div>
+      ) : (
+        <button onClick={handleSubmit} type="button" className="add-task">
+          Add task
+        </button>
+      )}
     </div>
   );
 };

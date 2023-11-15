@@ -44,9 +44,7 @@ export const MainHome = ({ user, showAddTask, toggle }) => {
       >
         <p>Task added</p>
       </div>
-      <div className="loading" style={{ display: loading ? "flex" : "none" }}>
-        <span class="loader"></span>
-      </div>
+
       <Section taskDecription={taskDecription} />
     </div>
   );
