@@ -9,6 +9,7 @@ export const SideBar = ({ user, setTaskDescription, tasks, setTasks }) => {
   useEffect(() => {
     async function fetchTaskList() {
       try {
+        console.log(process.env.REACT_APP_BASEURL);
         await api.post("/taskList", { firebaseId: user.uid }).then((res) => {
           setTasks(res.data.taskList);
         });
